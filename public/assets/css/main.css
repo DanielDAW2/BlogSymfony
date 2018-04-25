@@ -1,0 +1,68 @@
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+    transition: 0.5s;
+}
+a
+{
+    color: inherit;
+    text-decoration: none;
+}
+.flex
+{
+    display: flex;
+}
+header
+{
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+}
+header div
+{
+    flex: 1;
+}
+header div a{
+    text-align: center;
+}
+header div:nth-child(2)
+{
+    flex-grow: 3;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.fa
+{
+    color: black;
+    background-color: white;
+    
+}
+.fa:hover
+{
+    color: white;
+    text-shadow: 0 0 3px black;   
+}
+
+.user-forms
+{
+    display: flex;
+    flex: 1;
+}
+.user-forms div
+{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    
+}
+.user-forms div form{
+    display: flex;
+    align-items: center;
+    flex-direction:  column;
+}
+

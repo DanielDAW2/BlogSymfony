@@ -1,0 +1,15 @@
+{% extends 'post/index.html.twig' %}
+
+{% block table_headers %}
+    <th scope="col">Nombre</th>
+    <th scope="col">Correo</th>
+    <th scope="col">Acciones</th>
+{% endblock %}
+{% block table_data %}
+    <td>{{post.username}}</td>
+    <td>{{post.email}}</td>
+    <td>
+        <a href="{{path('EditUser',{id: post.id})}}" class="btn btn-success">Editar</a>
+        <a href="{{path('DelUser',{id: post.id})}}" class="btn btn-danger">Delete</a>
+    </td>
+{% endblock %}

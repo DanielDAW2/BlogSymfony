@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block container %}
+    <table class="table">
+        <thead>
+            <tr>
+                {% block table_headers %}
+                    <th scope="col">Title</th>
+                    <th scope="col">Resumen</th>
+                    <th scope="col">Creador</th>
+                    <th scope="col">Fecha</th>
+                    <th scope="col">Acciones</th>
+                {% endblock %}
+            </tr>
+        </thead>
+        {% for post in posts %}
+           <tr>
+               {% block table_data %}
+                    <td>{{post.title}}</td>
+                    <td>{{post.content}}</td>
+                    <td>{{post.user.username}}</td>
+                    <td>{{post.data_creacio}}</td>
+                    <td>
+                        <a href="{{path('editpost',{id: post.id})}}" class="btn btn-success">Editar</a>
+                        <a href="{{path('delpost',{id: post.id})}}" class="btn btn-danger">Delete</a>
+                    </td>
+               {% endblock %}
+            </tr>
+        {% endfor %}   
+    </table>
+
+{% endblock %}

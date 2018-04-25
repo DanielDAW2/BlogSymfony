@@ -1,0 +1,17 @@
+{# empty Twig template #}
+{% extends "base.html.twig" %}
+{% block container %}
+    <div class="container row justify-content-center ">
+        <div class="container">
+            <h2 class="text-center">Añade tu Post</h2>
+            {{ form_start(form)}}
+            {{form_widget(form) }}
+            {{form_end(form) }}           
+            {{form_errors(form)}}   
+        </div>
+    </div>
+{% endblock %}
+{% block javascripts %}
+    {{parent()}}
+    <script src="{{asset("assets/js/bootstrap-tagsinput.min.js")}}"></script>
+{%endblock%}

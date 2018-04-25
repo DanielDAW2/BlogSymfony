@@ -1,0 +1,51 @@
+#index:
+#    path: /
+#    controller: App\Controller\DefaultController::index
+
+# USERCONTROLLER
+login:
+    path: /login
+    controller: App\Controller\UserController::show
+login-user:
+    path: /login/user
+    controller: App\Controller\UserController::login
+logout:
+    path: /logout
+    controller: App\Controller\UserController::logout
+register:
+    path: /register
+    controller: App\Controller\UserController::register
+validuser:
+    path: /validuser
+    controller: App\Controller\UserController::validuser
+    methods: POST
+ViewUsers:
+    path: /admin/users
+    controller: App\Controller\UserController::viewUsers
+EditUser:
+    path: /admin/users/{id}
+    controller: App\Controller\UserController::editUser
+DelUser:
+    path: /admin/delete/{id}
+    controller : App\Controller\UserController::DelUser
+    
+# Post Controller
+postindex:
+    path: /admin/posts
+    controller: App\Controller\PostController::ListAllPost
+AddPost:
+    path: /post/new
+    controller: App\Controller\PostController::AddPost
+delpost:
+    path: /post/delete/{id}
+    controller: App\Controller\PostController::DeletePost
+    methods: GET
+editpost:
+    path: /post/edit/{id}
+    controller: App\Controller\PostController::EditPost
+viewPost:
+    path: /post/{id}
+    controller: App\Controller\PostController::viewPost
+viewPostByUser:
+    path: /Post/user/{id}
+    controller: App\Controller\PostController::viewPostByUser
