@@ -58,6 +58,7 @@ class PostController extends Controller
     public function EditPost(Request $req, PostRepository $post_repo, Post $post)
     {
         $form = $this->createForm(PostType::class, $post);
+        
         $form->handleRequest($req);
         $id = $req->get('id');
         $PostToEdit = $this->getDoctrine()->getManager()->getRepository(Post::class)->find($id);

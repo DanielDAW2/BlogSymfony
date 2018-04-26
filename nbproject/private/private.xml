@@ -3,14 +3,7 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/rtdan/Desktop/Academia%202017-2018/M7/UF2/Blogendo/BlogSymfony-master/public/.htaccess</file>
-            <file>file:/C:/Users/rtdan/Desktop/Academia%202017-2018/M7/UF2/Blogendo/BlogSymfony-master/src/Controller/HomeController.php</file>
-            <file>file:/C:/Users/rtdan/Desktop/Academia%202017-2018/M7/UF2/Blogendo/BlogSymfony-master/src/Controller/UserController.php</file>
-            <file>file:/C:/Users/rtdan/Desktop/Academia%202017-2018/M7/UF2/Blogendo/BlogSymfony-master/templates/post/index.html.twig</file>
-            <file>file:/C:/Users/rtdan/Desktop/Academia%202017-2018/M7/UF2/Blogendo/BlogSymfony-master/src/Controller/PostController.php</file>
-            <file>file:/C:/Users/rtdan/Desktop/Academia%202017-2018/M7/UF2/Blogendo/BlogSymfony-master/config/routes.yaml</file>
-            <file>file:/C:/Users/rtdan/Desktop/Academia%202017-2018/M7/UF2/Blogendo/BlogSymfony-master/templates/user/adminUsers.html.twig</file>
-            <file>file:/C:/Users/rtdan/Desktop/Academia%202017-2018/M7/UF2/Blogendo/BlogSymfony-master/.env.dist</file>
+            <file>file:/C:/Users/rtdan/Desktop/Academia%202017-2018/M7/UF2/Blogendo/BlogSymfony/src/Controller/UserController.php</file>
         </group>
     </open-files>
 </project-private>

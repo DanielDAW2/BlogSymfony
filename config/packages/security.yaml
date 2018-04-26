@@ -3,6 +3,7 @@ security:
         App\Entity\User:
             algorithm: bcrypt
             cost: 4
+
     # https://symfony.com/doc/current/security.html#where-do-users-come-from-user-providers
     providers:
         our_db_provider:

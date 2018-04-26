@@ -96,27 +96,33 @@ class UserController extends Controller
         $this->redirectToRoute("logout");
     }
     
-    public function EditUser(Request $req)
+    public function EditUser(Request $req, User $UserToEdit)
     {
-        $UserToEdit = $this->getDoctrine()->getManager()->getRepository(User::class)->find($req->get('id'));
+        
         $form = $this->createForm(RegisterType::class, $UserToEdit);
         $form->handleRequest($req);
-
+        
         if ($form->isSubmitted() && $form->isValid()) 
             {
                 $data = $form->getData();
-                dump($data);
+                $encoder = new BCryptPasswordEncoder(4);
+                $password=$encoder->encodePassword($data->getPasswd(),'');
+                $UserToEdit->setPasswd($password);
                 $entityManager = $this->getDoctrine()->getManager();
                 $entityManager->persist($UserToEdit);
                 $entityManager->flush();
                 return $this->redirectToRoute('home');
             }
-        return $this->render("user/edituser.html.twig",['form'=>$form->createView(),                                                    'user'=>$UserToEdit]);
+        return $this->render("user/edituser.html.twig",array('form'=>$form->createView()));
     }
     public function DelUser(Request $req)
     {
-        $this->getDocrine()->getRepository(User::class)->remove($req->get('id'));
+        $user = $this->getDoctrine()->getRepository(User::class)->findOneBy(['id'=>$req->get('id')]);
         
+        $em = $this->getDoctrine()->getManager();
+        
+        $em->remove($user);
+        $em->flush();
         return $this->RedirectToRoute('ViewUsers');
     }
 

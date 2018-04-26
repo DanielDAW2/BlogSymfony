@@ -1,5 +1,20 @@
 {% extends 'user/register.html.twig' %}
 
-{% block registerUserTitle %}
-     <h2 class="text-center">Editar Usuario</h2>
+
+{% block container %}
+    <div class="container row justify-content-center">
+        <div class="col-md-6">
+            {% block registerUserTitle %}
+                <h2 class="text-center">Editar Usuario</h2>
+           {% endblock %}
+
+            {{ form_start(form)}}
+
+            {{form_widget(form) }}
+            {{form_end(form) }}
+            {{form_row(form.passwd,{'required':'false'})}}
+           {{form_errors(form)}}   
+        </div>
+             
+    </div>
 {% endblock %}

@@ -36,15 +36,16 @@ class RegisterType extends AbstractType
                 ])
                 ->add('passwd', RepeatedType::class,[
                 'type'=>PasswordType::class,
-                'required'=>'required',
-                'first_options'=>['label'=>'Password',
-                        'attr'=>[
-                        'class'=>'form-password form-control'
-                ]],
-                'second_options'=>['label'=>'Repeat Password',
-                        'attr'=>[
-                        'class'=>'form-password form-control'
-                        ]]
+                        'required'=>'required',
+                        'first_options'=>['label'=>'Password',
+                                'attr'=>[
+                                    'class'=>'form-password form-control'
+                                        ]],
+                        'second_options'=>['label'=>'Repeat Password',
+                                'attr'=>
+                                [
+                                    'class'=>'form-password form-control'
+                                ]]
                 ])
                 ->add('Signup', SubmitType::class,
                         ['label'=>'Sign up',
