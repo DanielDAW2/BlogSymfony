@@ -56,14 +56,24 @@ comment:
     controller: App\Controller\CommentController::setComment
     
 #api
-getposts:
-    path: /api/posts
-    controller: App\Controller\Api\PostController::getAllPost
-    methods: [GET]
 getUsers:
     path: /api/user/{id}
     controller: App\Controller\Api\UserController::getUsers
     methods: [GET]
     defaults:
         id: null
-   
+deleteUser:
+    path: /api/user/delete/{id}
+    controller: App\Controller\Api\UserController::deleteUser
+    methods: [DELETE]
+register_api:
+  path: /api/new/user
+  controller: App\Controller\Api\UserController::register
+  methods: [POST]
+
+
+api_update_user:
+  path: /api/user/{username}
+  controller: App\Controller\Api\UserController::updateUser
+  methods: [PUT]
+    

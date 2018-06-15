@@ -20,15 +20,18 @@ class Comment
     // add your own fields
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="id")
+     * @ORM\JoinColumn(onDelete="CASCADE")
      */
     private $user_id;
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Post", inversedBy="comment")
+     * @ORM\JoinColumn(onDelete="CASCADE")
      */
     private $post_id;
     
     /**
      * @ORM\Column(type="string", length=150)
+     * 
      */
     
     private $message;

@@ -30,12 +30,13 @@ class Post
     
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="posts")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\JoinColumn(nullable=false, onDelete="CASCADE")
      */
     private $user;
     /**
      * @ORM\ManyToMany(targetEntity="App\Entity\Tag", inversedBy="post", cascade={"persist"})
      * @ORM\JoinTable(name="post_tags")
+     * @ORM\JoinColumn(onDelete="CASCADE")
      */
     private $tag;
     
@@ -51,6 +52,7 @@ class Post
     
      /**
      * @ORM\OneToMany(targetEntity="App\Entity\Comment", mappedBy="post_id")
+      * @ORM\JoinColumn(onDelete="CASCADE")
      */
     private $comments;
     

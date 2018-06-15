@@ -55,6 +55,7 @@ class User implements UserInterface
     /**
      *
      * @ORM\OneToMany(targetEntity="App\Entity\Post", mappedBy="user")
+     * @ORM\JoinColumn(onDelete="CASCADE")
      */
     private $posts;
     

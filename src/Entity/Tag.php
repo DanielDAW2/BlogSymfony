@@ -24,6 +24,7 @@ class Tag
     /**
      * @ORM\ManyToMany(targetEntity="App\Entity\Post", mappedBy="tag")
      * @ORM\JoinTable(name="post_tags")
+     * @ORM\JoinColumn(onDelete="CASCADE")
      */
     private $post;
     
