@@ -3,8 +3,18 @@
 <div class="blog-post">
             <h2 class="blog-post-title">{{post.title}}</h2>
             <p class="blog-post-meta"><em>{{post.data_creacio}}</em> By:&nbsp;<a href="{{path('viewPostByUser',{id:post.user.id})}}"><small>{{post.user.username}}</small></a></p>
-            <p>
-                {{post.content}}
-            </p>
+            {% if app.user %}
+                {{form_start(comment,{'action':path("comment",{id:post.id}),'method':'POST'})}}
+                {{form_widget(comment)}}
+                {{form_end(comment)}}
+            
+                
+            {% endif %}
+            {% for comment in comments %}
+                <div class="jumbotron-fluid">
+                    <small>By: {{comment.user_id.username}} at {{comment.data}}</small>
+                    <p>{{comment.message}}</p>
+                </div>
+            {% endfor %}
           </div>
 {% endblock %}

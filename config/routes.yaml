@@ -49,3 +49,21 @@ viewPost:
 viewPostByUser:
     path: /Post/user/{id}
     controller: App\Controller\PostController::viewPostByUser
+    
+#Comment Controller
+comment:
+    path: /comment/post/{id}
+    controller: App\Controller\CommentController::setComment
+    
+#api
+getposts:
+    path: /api/posts
+    controller: App\Controller\Api\PostController::getAllPost
+    methods: [GET]
+getUsers:
+    path: /api/user/{id}
+    controller: App\Controller\Api\UserController::getUsers
+    methods: [GET]
+    defaults:
+        id: null
+   

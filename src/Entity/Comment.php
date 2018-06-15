@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\CommentRepository")
@@ -60,7 +61,7 @@ class Comment
     }
 
     public function getData() {
-        return $this->data;
+        return $this->data->format('d-m-y H:i:s');;
     }
 
     public function setId($id) {

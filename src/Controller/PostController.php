@@ -6,7 +6,9 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use App\Repository\PostRepository;
 use Symfony\Component\HttpFoundation\Request;
 use App\Entity\Post;
+use App\Entity\Comment;
 use App\Form\PostType;
+use App\Form\CommentType;
 
 class PostController extends Controller
 {
@@ -63,6 +65,8 @@ class PostController extends Controller
         $id = $req->get('id');
         $PostToEdit = $this->getDoctrine()->getManager()->getRepository(Post::class)->find($id);
         
+        
+        
         if ($form->isSubmitted() && $form->isValid()) 
             {
             $entityManager = $this->getDoctrine()->getManager();
@@ -77,11 +81,15 @@ class PostController extends Controller
     public function viewPost(Request $req)
     {
         $post = $this->getDoctrine()->getRepository(Post::class)->find($req->get('id'));
-        return $this->render("post/viewPost.html.twig",['post'=>$post]);
+        $comment_form = $this->createForm(CommentType::class);
+        $comments = $this->getDoctrine()->getRepository(Comment::class)->findBy(['post_id'=>$post]);
+        return $this->render("post/viewPost.html.twig",['post'=>$post,'comment'=>$comment_form->createView(),'comments'=>$comments]);
     }
     public function viewPostByUser(Request $req)
     {
-        $posts = $this->getDoctrine()->getRepository(Post::class)->findBy(['user'=>$req->get('id')]);
+        $posts = $this->getDoctrine()->
+                getRepository(Post::class)->
+                findBy(['user'=>$req->get('id')]);
         return $this->render('home/index.html.twig',['posts'=>$posts]);
     }
 }
