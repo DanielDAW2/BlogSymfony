@@ -87,38 +87,6 @@ class UserController extends Controller {
         }
         return new JsonResponse($this->serialize($newuser));
     }
-    
-        public function updateUser(Request $request, string $username, UserPasswordEncoderInterface $passwordEncoder) {
-        
-            $user = $this->getDoctrine()
-                        ->getRepository(User::class)
-                        ->findOneBy([ 'username' => $username ]);
-            if(!$user) {
-                return new JsonResponse("No existe el usuario",404);
-            }
-            $username = $request->request->get('username');
-            $password = $request->request->get('password');
-            $rol = $request->request->get('rol');
-            $isActive = $request->request->get('isActive');
-            if($username != null) {
-                $user->setUsername($username);
-            }
-            if($password != null) {
-                $password = $passwordEncoder->encodePassword($user, $password);
-                $user->setPassword($password);
-            }
-            if($rol != null) {
-                $user->setRol($rol);
-            }
-            if($isActive != null) {
-                $user->setIsActive($isActive);
-            }
-            $manager = $this->getDoctrine()->getManager();
-            $manager->persist($user);
-            $manager->flush();
-        
-        return new JsonResponse($this->serialize($user));
-    }
 
 
 }
