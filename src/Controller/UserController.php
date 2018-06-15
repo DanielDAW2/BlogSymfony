@@ -53,7 +53,7 @@ class UserController extends Controller
         if ($form->isSubmitted() && $form->isValid()) {
             // encoding password, first we get password in plaintext and then
     // we encode it.
-            $password=$passwordEncoder->UserPasswordEncoderInterface($user, $user->getPasswd());
+            $password=$passwordEncoder->encodePassword($user, $user->getPasswd());
             $user->setPasswd($password);
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($user);
